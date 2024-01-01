@@ -60,7 +60,7 @@ SECURE_HSTS_PRELOAD = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'https://kanban-app-botir.vercel.app/',
+    'https://kanban-app-botir.vercel.app',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
