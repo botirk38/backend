@@ -61,8 +61,9 @@ SECURE_HSTS_PRELOAD = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://kanban-app-botir.vercel.app',
-    'https://kanban-task-management-cfqa84nfr-botirk38s/'
+    'https://kanban-task-management-cfqa84nfr-botirk38s-projects.vercel.app'
 ]
+
 
 CORS_ALLOW_CREDENTIALS = True
 
