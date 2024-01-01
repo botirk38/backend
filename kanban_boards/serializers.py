@@ -132,10 +132,6 @@ class BoardSerializer(serializers.ModelSerializer):
         columns_data = validated_data.pop('columns', [])
         instance.name = validated_data.get('name', instance.name)
         instance.save()
-
-        # Get set of all existing column IDs for the board
-        existing_column_ids = set(instance.columns.values_list('id', flat=True))
-
         # Process each column
         for column_data in columns_data:
             column_id = column_data.get('id')
@@ -145,10 +141,10 @@ class BoardSerializer(serializers.ModelSerializer):
                     id=column_id, board=instance).first()
                 if column_instance:
                     ColumnSerializer().update(column_instance, column_data)
-                    # Remove the processed column ID from the set
-                    existing_column_ids.discard(column_id)
 
-        # Delete any columns not included in the updated data
-        Column.objects.filter(id__in=existing_column_ids).delete()
+            else:
+                column_name = column_data.get('name')
+                if column_name:
+                    Column.objects.delete(name=column_name, board=instance)
 
         return instance
