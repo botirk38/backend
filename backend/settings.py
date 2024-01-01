@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kanban-a092a99fbf97.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['kanban-a092a99fbf97.herokuapp.com', 'localhost', '127.0.0.1', '']
 
 # Application definition
 
@@ -61,6 +61,7 @@ SECURE_HSTS_PRELOAD = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://kanban-app-botir.vercel.app',
+    'https://kanban-task-management-cfqa84nfr-botirk38s/'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
