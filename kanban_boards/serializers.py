@@ -145,6 +145,5 @@ class BoardSerializer(serializers.ModelSerializer):
             else:
                 column_name = column_data.get('name')
                 if column_name:
-                    Column.objects.delete(name=column_name, board=instance)
-
+                    Column.objects.create(board=instance, name=column_name)
         return instance
