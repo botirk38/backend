@@ -64,6 +64,12 @@ CORS_ALLOWED_ORIGINS = [
     'https://kanban-task-management-cfqa84nfr-botirk38s-projects.vercel.app'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://kanban-task-management-cfqa84nfr-botirk38s-projects.vercel.app',
+    'https://kanban-app-botir.vercel.app',
+]
+
+
 
 CORS_ALLOW_CREDENTIALS = True
 
