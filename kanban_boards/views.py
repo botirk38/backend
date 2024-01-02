@@ -93,6 +93,14 @@ class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        column_id = self.kwargs.get('column_id')
+
+        if not Column.objects.filter(id=column_id).exists():
+            raise NotFound('Column not found')
+
+        return Task.objects.filter(column_id=column_id)
+
     def create(self, request, *args, **kwargs):
         column_id = kwargs.get('column_id')
         try:
