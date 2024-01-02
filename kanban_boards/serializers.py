@@ -61,8 +61,8 @@ class TaskSerializer(serializers.ModelSerializer):
                 # Update existing subtask
                 subtask_instance = Subtask.objects.get(
                     id=subtask_id, task=instance)
-                # Update fields in subtask_instance from subtask_data
-                # ...
+                for key, value in subtask_data.items():
+                    setattr(subtask_instance, key, value)
                 subtask_instance.save()
             else:
                 # Create new subtask - Ensure 'task' is not included in subtask_data
